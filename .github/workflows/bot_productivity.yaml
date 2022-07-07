@@ -1,0 +1,37 @@
+name Check bot productivity
+
+on:
+  push:
+    branches:
+      -main
+  pull_request:
+    types:
+      - opened
+    branches:
+      - main
+
+jobs:
+  build_and_run_bot:
+    name: Startup bot
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+      - name: Start the bot
+        run: |
+          python3 test.py
+          echo '::warning:: This is a warning message, to demonstrate that commands are being processed.'
+          stopMarker=$(uuidgen)
+          echo "::stop-commands::$stopMarker"
+          echo '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
+          echo "::$stopMarker::"
