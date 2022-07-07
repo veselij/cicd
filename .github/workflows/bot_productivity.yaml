@@ -1,4 +1,4 @@
-name Check bot productivity
+name: Check bot productivity
 
 on:
   push:
