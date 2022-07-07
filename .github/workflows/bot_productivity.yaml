@@ -29,9 +29,4 @@ jobs:
           python -m pip install --upgrade pip
       - name: Start the bot
         run: |
-          python3 test.py
-          echo '::warning:: This is a warning message, to demonstrate that commands are being processed.'
-          stopMarker=$(uuidgen)
-          echo "::stop-commands::$stopMarker"
-          echo '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
-          echo "::$stopMarker::"
+          python3 test.py & sleep(10) && pkill -9 python
