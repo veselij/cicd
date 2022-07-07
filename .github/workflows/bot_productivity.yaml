@@ -3,12 +3,12 @@ name: Check bot productivity
 on:
   push:
     branches:
-      -main
+      [ "main" ]
   pull_request:
     types:
       - opened
     branches:
-      - main
+      [ "main" ]
 
 jobs:
   build_and_run_bot:
