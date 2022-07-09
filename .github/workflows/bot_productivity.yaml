@@ -29,4 +29,5 @@ jobs:
           python -m pip install --upgrade pip
       - name: Start the bot
         run: |
-          python3 nohup test.py &
+          python3 test.py & sleep 5 && pkill -9 python
+          python3 test3.py & sleep 5 && pkill -9 python
