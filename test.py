@@ -1,5 +1,5 @@
 from time import sleep
 
 
-print("Test"
-sleep(60)
+print("Test")
+sleep(6)
