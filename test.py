@@ -2,4 +2,4 @@ from time import sleep
 
 
 print("Test")
-sleep(6)
+sleep(6
